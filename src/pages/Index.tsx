@@ -127,7 +127,7 @@ const Index = () => {
               See our latest creations, behind-the-scenes moments, and happy customers on Instagram
             </p>
             <a 
-              href="https://instagram.com/yarn_yantra" 
+              href="https://www.instagram.com/yarn_yantra?igsh=MW42ZmV2bmN0OTc1Ng==" 
               target="_blank" 
               rel="noopener noreferrer"
             >
