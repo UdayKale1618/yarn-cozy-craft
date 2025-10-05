@@ -128,8 +128,7 @@ const Index = () => {
             </p>
             <a 
               href="https://www.instagram.com/yarn_yantra/" 
-              target="_blank" 
-              rel="noopener noreferrer"
+              target="_blank"
             >
               <Button size="lg" variant="default">
                 Follow @yarn_yantra on Instagram

@@ -77,8 +77,7 @@ export const Footer = () => {
               </p>
               <a 
                 href="https://www.instagram.com/yarn_yantra/" 
-                target="_blank" 
-                rel="noopener noreferrer"
+                target="_blank"
                 className="text-sm font-medium hover:text-primary transition-colors"
               >
                 @yarn_yantra on Instagram
