@@ -76,7 +76,7 @@ export const Footer = () => {
                 Stay updated with our latest creations and behind-the-scenes moments!
               </p>
               <a 
-                href="https://www.instagram.com/yarn_yantra?igsh=MW42ZmV2bmN0OTc1Ng==" 
+                href="https://www.instagram.com/yarn_yantra/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-sm font-medium hover:text-primary transition-colors"
