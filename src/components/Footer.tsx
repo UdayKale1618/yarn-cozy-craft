@@ -83,7 +83,7 @@ export const Footer = () => {
               >
                 @yarn_yantra on Instagram
               </a>
-            </div>
+            </di
           </div>
 
           <div className="border-t mt-8 pt-8 text-center text-sm text-muted-foreground">
