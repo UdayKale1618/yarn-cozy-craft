@@ -174,9 +174,12 @@ const Shop = () => {
                 <p className="text-sm text-muted-foreground mb-2">SKU: {product.sku}</p>
                 <p className="text-2xl font-bold">₹{product.price}</p>
               </CardContent>
-              <CardFooter className="p-4 pt-0">
+              <CardFooter className="p-4 pt-0 flex flex-col gap-2">
                 <Link to={`/product/${product.id}`} className="w-full">
-                  <Button className="w-full">View Details</Button>
+                  <Button className="w-full">Buy Now</Button>
+                </Link>
+                <Link to={`/product/${product.id}`} className="w-full">
+                  <Button variant="outline" className="w-full">Add to Cart</Button>
                 </Link>
               </CardFooter>
             </Card>

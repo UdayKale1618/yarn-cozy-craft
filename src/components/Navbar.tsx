@@ -77,14 +77,8 @@ export const Navbar = () => {
       <Link to="/shop">
         <Button variant="ghost">Shop</Button>
       </Link>
-      <Link to="/gallery">
-        <Button variant="ghost">Gallery</Button>
-      </Link>
       <Link to="/about">
         <Button variant="ghost">About</Button>
-      </Link>
-      <Link to="/blog">
-        <Button variant="ghost">Blog</Button>
       </Link>
       {isAdmin && (
         <Link to="/admin">
