@@ -62,11 +62,6 @@ const Index = () => {
                   Shop Now
                 </Button>
               </Link>
-              <Link to="/gallery">
-                <Button size="lg" variant="outline" className="text-lg">
-                  View Gallery
-                </Button>
-              </Link>
             </div>
           </div>
         </section>
