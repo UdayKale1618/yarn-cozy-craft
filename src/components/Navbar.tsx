@@ -47,7 +47,7 @@ export const Navbar = () => {
     const { data } = await supabase
       .from("cart_items")
       .select("quantity");
-    
+
     if (data) {
       const total = data.reduce((sum, item) => sum + item.quantity, 0);
       setCartCount(total);
@@ -60,7 +60,7 @@ export const Navbar = () => {
       .select("role")
       .eq("id", userId)
       .single();
-    
+
     setIsAdmin(data?.role === "admin");
   };
 
@@ -93,9 +93,15 @@ export const Navbar = () => {
       <div className="container flex h-16 items-center justify-between">
         <div className="flex items-center gap-6">
           <Link to="/" className="flex items-center space-x-2">
-            <span className="font-bold text-2xl">Yarn_yantra</span>
+            <img
+              src="/logo2.png"
+              alt="Yarn Yantra Logo"
+              className="h-12 w-36 object-contain"
+            />
+
+            <span className="font-bold text-2xl"> </span>
           </Link>
-          
+
           <div className="hidden md:flex items-center gap-2">
             <NavLinks />
           </div>

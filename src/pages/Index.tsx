@@ -144,7 +144,7 @@ const Index = () => {
               </p>
               <Button 
                 size="lg" 
-                onClick={() => window.open("https://wa.me/1234567890", "_blank")}
+                onClick={() => window.open("https://wa.me/9699536721", "_blank")}
               >
                 Chat with Us
               </Button>
