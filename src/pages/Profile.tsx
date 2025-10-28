@@ -18,6 +18,12 @@ interface Profile {
   full_name: string | null;
   phone: string | null;
   role: string;
+  address_line_1: string | null;
+  address_line_2: string | null;
+  city: string | null;
+  state: string | null;
+  zip_code: string | null;
+  country: string | null;
 }
 
 interface Order {
@@ -37,6 +43,11 @@ const Profile = () => {
   const [orders, setOrders] = useState<Order[]>([]);
   const [fullName, setFullName] = useState("");
   const [phone, setPhone] = useState("");
+  const [addressLine1, setAddressLine1] = useState("");
+  const [addressLine2, setAddressLine2] = useState("");
+  const [city, setCity] = useState("");
+  const [state, setState] = useState("");
+  const [zipCode, setZipCode] = useState("");
 
   useEffect(() => {
     checkAuth();
@@ -74,6 +85,11 @@ const Profile = () => {
       setProfile(data);
       setFullName(data.full_name || "");
       setPhone(data.phone || "");
+      setAddressLine1(data.address_line_1 || "");
+      setAddressLine2(data.address_line_2 || "");
+      setCity(data.city || "");
+      setState(data.state || "");
+      setZipCode(data.zip_code || "");
     }
   };
 
@@ -101,6 +117,11 @@ const Profile = () => {
       .update({
         full_name: fullName.trim() || null,
         phone: phone.trim() || null,
+        address_line_1: addressLine1.trim() || null,
+        address_line_2: addressLine2.trim() || null,
+        city: city.trim() || null,
+        state: state.trim() || null,
+        zip_code: zipCode.trim() || null,
       })
       .eq("id", profile.id);
 
@@ -173,7 +194,7 @@ const Profile = () => {
             </Button>
           </div>
 
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="space-y-8">
             {/* Profile Information */}
             <Card>
               <CardHeader>
@@ -182,43 +203,103 @@ const Profile = () => {
                   Profile Information
                 </CardTitle>
                 <CardDescription>
-                  Update your personal details
+                  Update your personal details and shipping address
                 </CardDescription>
               </CardHeader>
               <CardContent>
-                <form onSubmit={handleUpdateProfile} className="space-y-4">
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={profile.email}
-                      disabled
-                      className="bg-muted"
-                    />
-                    <p className="text-xs text-muted-foreground">Email cannot be changed</p>
+                <form onSubmit={handleUpdateProfile} className="space-y-6">
+                  <div className="grid gap-4 md:grid-cols-2">
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={profile.email}
+                        disabled
+                        className="bg-muted"
+                      />
+                      <p className="text-xs text-muted-foreground">Email cannot be changed</p>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="fullName">Full Name</Label>
+                      <Input
+                        id="fullName"
+                        type="text"
+                        value={fullName}
+                        onChange={(e) => setFullName(e.target.value)}
+                        placeholder="Enter your full name"
+                      />
+                    </div>
+
+                    <div className="space-y-2 md:col-span-2">
+                      <Label htmlFor="phone">Phone Number</Label>
+                      <Input
+                        id="phone"
+                        type="tel"
+                        value={phone}
+                        onChange={(e) => setPhone(e.target.value)}
+                        placeholder="Enter your phone number"
+                      />
+                    </div>
                   </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">Full Name</Label>
-                    <Input
-                      id="fullName"
-                      type="text"
-                      value={fullName}
-                      onChange={(e) => setFullName(e.target.value)}
-                      placeholder="Enter your full name"
-                    />
-                  </div>
+                  <Separator />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
-                      placeholder="Enter your phone number"
-                    />
+                  <div className="space-y-4">
+                    <h3 className="font-semibold">Shipping Address</h3>
+                    
+                    <div className="space-y-2">
+                      <Label htmlFor="address1">Address Line 1</Label>
+                      <Input
+                        id="address1"
+                        value={addressLine1}
+                        onChange={(e) => setAddressLine1(e.target.value)}
+                        placeholder="Street address"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="address2">Address Line 2</Label>
+                      <Input
+                        id="address2"
+                        value={addressLine2}
+                        onChange={(e) => setAddressLine2(e.target.value)}
+                        placeholder="Apartment, suite, etc. (optional)"
+                      />
+                    </div>
+
+                    <div className="grid gap-4 md:grid-cols-3">
+                      <div className="space-y-2">
+                        <Label htmlFor="city">City</Label>
+                        <Input
+                          id="city"
+                          value={city}
+                          onChange={(e) => setCity(e.target.value)}
+                          placeholder="City"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="state">State</Label>
+                        <Input
+                          id="state"
+                          value={state}
+                          onChange={(e) => setState(e.target.value)}
+                          placeholder="State"
+                        />
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="zip">ZIP Code</Label>
+                        <Input
+                          id="zip"
+                          value={zipCode}
+                          onChange={(e) => setZipCode(e.target.value)}
+                          placeholder="ZIP Code"
+                        />
+                      </div>
+                    </div>
                   </div>
 
                   <Button type="submit" className="w-full" disabled={saving}>
@@ -228,6 +309,8 @@ const Profile = () => {
                 </form>
               </CardContent>
             </Card>
+
+            <div className="grid gap-8 md:grid-cols-2">
 
             {/* Account Details */}
             <Card>
@@ -263,6 +346,7 @@ const Profile = () => {
                 </div>
               </CardContent>
             </Card>
+            </div>
           </div>
 
           {/* Recent Orders */}

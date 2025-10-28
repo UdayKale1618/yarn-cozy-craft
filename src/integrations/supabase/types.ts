@@ -242,31 +242,49 @@ export type Database = {
       }
       profiles: {
         Row: {
+          address_line_1: string | null
+          address_line_2: string | null
+          city: string | null
+          country: string | null
           created_at: string
           email: string
           full_name: string | null
           id: string
           phone: string | null
           role: Database["public"]["Enums"]["user_role"]
+          state: string | null
           updated_at: string
+          zip_code: string | null
         }
         Insert: {
+          address_line_1?: string | null
+          address_line_2?: string | null
+          city?: string | null
+          country?: string | null
           created_at?: string
           email: string
           full_name?: string | null
           id: string
           phone?: string | null
           role?: Database["public"]["Enums"]["user_role"]
+          state?: string | null
           updated_at?: string
+          zip_code?: string | null
         }
         Update: {
+          address_line_1?: string | null
+          address_line_2?: string | null
+          city?: string | null
+          country?: string | null
           created_at?: string
           email?: string
           full_name?: string | null
           id?: string
           phone?: string | null
           role?: Database["public"]["Enums"]["user_role"]
+          state?: string | null
           updated_at?: string
+          zip_code?: string | null
         }
         Relationships: []
       }
